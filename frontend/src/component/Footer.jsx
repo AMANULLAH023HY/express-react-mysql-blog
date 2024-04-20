@@ -1,6 +1,11 @@
+
+import LOGO from '../img/logo1.png'
 const Footer = ()=>{
     return(
-        <div>Footer</div>
+        <footer>
+            <img src={LOGO} alt=""/>
+            <span>Made with Adil and <b>Rose</b>.</span>
+        </footer>
     )
 }
 
