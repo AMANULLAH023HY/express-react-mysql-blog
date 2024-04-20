@@ -2,7 +2,17 @@ $lightGreen:#b9e7e7;
 
 .app {
 
+    display: flex;
+    justify-content: center;
+
     .container{
+
+        width: 1024px;
+
+        .link{
+            text-decoration: none;
+            color: inherit;
+        }
 
         // LONGIN & REGISTER
 
@@ -54,6 +64,61 @@ $lightGreen:#b9e7e7;
                 }
 
 
+            }
+        }
+
+
+        // NAVBAR
+
+        .navbar{
+            .container{
+                display: flex;
+                padding: 10px 0px;
+                justify-content: space-between;
+                .logo{
+                    img{
+                        width: 120px;
+                    }
+
+                }
+                .link{
+                    gap: 10px;
+                    display: flex;
+                    align-items: center;
+
+                    h6{
+                        font-size: 16px;
+                        font-weight: 300;
+                    }
+
+                    span{
+                        cursor: pointer;
+
+                        
+                    }
+                    .write{
+                        background-color: $lightGreen;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 50px;
+                        width: 50px;
+                        border-radius: 50%;
+                        font-weight: 300;
+                        border: 1px solid white;
+
+
+                        &:hover{
+                            
+                            color: teal;
+                            background-color: #fff;
+                            border: 1px solid teal;
+                        }
+
+                    }
+
+
+                }
             }
         }
 
