@@ -7,3 +7,11 @@ export const db = mysql.createConnection({
     database:"blog",
 }) 
 
+db.connect((err)=>{
+    if(err){
+        console.log(err);
+    }else{
+        console.log("Connect to DB");
+    }
+})
+
