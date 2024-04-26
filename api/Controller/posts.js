@@ -39,7 +39,28 @@ const getSinglePostsController = (req, res) => {
 
 
 // ADD POST 
-const addPostsController = (req, res) => {};
+const addPostsController = (req, res) => {
+
+    // Extract post data from the request body
+    const { title, desc, img, cat, uid, date } = req.body;
+
+    // Ensure all required fields are provided
+    if (!title || !desc || !img || !cat || !uid || !date) {
+      return res.status(400).json("All fields are required");
+    }
+  
+    // Insert the new post into the database
+    const insertQuery =
+      "INSERT INTO post (title, `desc`, img, uid, cat, date) VALUES (?, ?, ?, ?, ?, ?)";
+    const values = [title, desc, img, uid, cat, date];
+  
+    db.query(insertQuery, values, (err, data) => {
+      if (err) {
+        return res.status(500).json(err);
+      }
+      return res.status(201).json("Post added successfully");
+    });
+};
 
 const deletePostsController = (req, res) => {
 
@@ -64,7 +85,11 @@ const deletePostsController = (req, res) => {
     })
 };
 
-const updatePostsController = (req, res) => {};
+const updatePostsController = (req, res) => {
+
+
+    
+};
 
 export {
   getPostsController,
