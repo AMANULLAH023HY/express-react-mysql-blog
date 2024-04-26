@@ -1,8 +1,7 @@
+import { query } from "express";
 import { db } from "../config/db.js";
 
 // GET ALL POSTS
-
-
 const getPostsController = (req, res) => {
   // Check if the 'cat' query parameter exists
   const q = req.query.cat
@@ -22,7 +21,20 @@ const getPostsController = (req, res) => {
   });
 };
 
-const getSinglePostsController = (req, res) => {};
+// // GET Single POSTS by id
+
+const getSinglePostsController = (req, res) => {
+  const q =
+    "SELECT `username`, `title`, `desc`, `cat`,`date` FROM users u JOIN post p ON u.id = p.uid WHERE p.id = ?";
+
+
+  db.query(q, [req.params.id], (err, data) => {
+    if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).json(data[0]);
+  });
+};  
 
 const addPostsController = (req, res) => {};
 
